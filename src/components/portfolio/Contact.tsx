@@ -36,7 +36,12 @@ const Contact = () => {
     }
 
     setSubmitting(true);
-    const { error } = await supabase.from("contact_messages").insert([parsed.data]);
+    const payload = {
+      name: parsed.data.name as string,
+      email: parsed.data.email as string,
+      message: parsed.data.message as string,
+    };
+    const { error } = await supabase.from("contact_messages").insert([payload]);
     setSubmitting(false);
 
     if (error) {
