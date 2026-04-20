@@ -10,6 +10,8 @@ const projects = [
     stack: ["React", "Vite", "JavaScript", "Recharts", "Context API"],
     accent: "from-primary to-secondary",
     badge: "01",
+    liveUrl: "https://fin-dash-eta-two.vercel.app/",
+    githubUrl: "#",
   },
   {
     title: "Hostel Expense Manager",
@@ -19,6 +21,8 @@ const projects = [
     stack: ["React", "TypeScript", "Firebase", "Vite"],
     accent: "from-secondary to-accent",
     badge: "02",
+    liveUrl: "https://messbill.vercel.app/",
+    githubUrl: "#",
   },
   {
     title: "Smart Tank Monitor",
@@ -28,6 +32,8 @@ const projects = [
     stack: ["Next.js", "TypeScript", "Socket.IO", "SQLite", "NodeMCU"],
     accent: "from-accent to-primary",
     badge: "03",
+    liveUrl: "#",
+    githubUrl: "#",
   },
   {
     title: "Superbike Showcase",
@@ -37,6 +43,8 @@ const projects = [
     stack: ["HTML", "CSS", "JavaScript"],
     accent: "from-primary via-secondary to-accent",
     badge: "04",
+    liveUrl: "https://super-bike-shocase.vercel.app/",
+    githubUrl: "#",
   },
 ];
 
@@ -85,7 +93,7 @@ const Projects = () => {
 
             <div className="flex items-center gap-2 mt-5 pt-5 border-t border-border">
               <a
-                href="https://github.com"
+                href={p.githubUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-xs font-mono text-muted-foreground hover:text-primary transition-colors flex items-center gap-1.5"
@@ -94,7 +102,9 @@ const Projects = () => {
               </a>
               <span className="text-muted-foreground/30">·</span>
               <a
-                href="#"
+                href={p.liveUrl}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="text-xs font-mono text-muted-foreground hover:text-secondary transition-colors flex items-center gap-1.5"
               >
                 <ExternalLink className="h-3.5 w-3.5" /> Live
