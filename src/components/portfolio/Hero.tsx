@@ -1,6 +1,8 @@
 import { lazy, Suspense } from "react";
 import { Button } from "@/components/ui/button";
-import { ArrowDown, Github, Linkedin, Mail } from "lucide-react";
+import { ArrowDown, Download, Github, Linkedin, Mail, Sparkles } from "lucide-react";
+import TypewriterRole from "./TypewriterRole";
+import OrbitingBadges from "./OrbitingBadges";
 
 const HeroScene = lazy(() => import("./HeroScene"));
 
@@ -12,8 +14,10 @@ const Hero = () => {
     >
       {/* Radial glow backdrop */}
       <div className="absolute inset-0 pointer-events-none opacity-70">
-        <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[800px] h-[800px] rounded-full blur-3xl"
-             style={{ background: "var(--gradient-radial)" }} />
+        <div
+          className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[800px] h-[800px] rounded-full blur-3xl"
+          style={{ background: "var(--gradient-radial)" }}
+        />
       </div>
 
       <div className="container relative z-10 grid lg:grid-cols-2 gap-12 items-center py-20">
@@ -34,7 +38,11 @@ const Hero = () => {
             <span className="block text-gradient animate-flicker">Dhruva Hegde</span>
           </h1>
 
-          <p className="text-lg sm:text-xl text-muted-foreground max-w-xl leading-relaxed">
+          <div className="min-h-[2rem]">
+            <TypewriterRole />
+          </div>
+
+          <p className="text-base sm:text-lg text-muted-foreground max-w-xl leading-relaxed">
             Software developer crafting{" "}
             <span className="text-foreground font-medium">real-time dashboards</span>,{" "}
             <span className="text-foreground font-medium">IoT systems</span>, and{" "}
@@ -43,13 +51,34 @@ const Hero = () => {
           </p>
 
           <div className="flex flex-wrap gap-3 pt-2">
-            <Button asChild size="lg" className="bg-gradient-to-r from-primary to-secondary text-primary-foreground hover:opacity-90 glow-primary font-medium">
+            <Button
+              asChild
+              size="lg"
+              className="bg-gradient-to-r from-primary to-secondary text-primary-foreground hover:opacity-90 glow-primary font-medium"
+            >
               <a href="#projects">
                 View Projects <ArrowDown className="ml-2 h-4 w-4" />
               </a>
             </Button>
-            <Button asChild size="lg" variant="outline" className="border-primary/40 hover:border-primary hover:bg-primary/10">
-              <a href="#contact">Get in touch</a>
+            <Button
+              asChild
+              size="lg"
+              variant="outline"
+              className="border-primary/40 hover:border-primary hover:bg-primary/10 group"
+            >
+              <a href="/Dhruva-Hegde-Resume.pdf" download>
+                <Download className="mr-2 h-4 w-4 group-hover:animate-bounce" /> Download Resume
+              </a>
+            </Button>
+            <Button
+              asChild
+              size="lg"
+              variant="ghost"
+              className="hover:bg-accent/10 hover:text-accent"
+            >
+              <a href="#contact">
+                <Sparkles className="mr-2 h-4 w-4" /> Hire Me
+              </a>
             </Button>
           </div>
 
@@ -85,7 +114,7 @@ const Hero = () => {
           </div>
         </div>
 
-        {/* Right: 3D scene */}
+        {/* Right: 3D scene + orbiting badges */}
         <div className="relative h-[400px] sm:h-[500px] lg:h-[600px] animate-fade-in-up">
           <Suspense
             fallback={
@@ -96,6 +125,7 @@ const Hero = () => {
           >
             <HeroScene />
           </Suspense>
+          <OrbitingBadges />
         </div>
       </div>
 
