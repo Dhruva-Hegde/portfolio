@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
 import { Menu, X } from "lucide-react";
+import { ThemeToggle } from "./ThemeToggle";
 
 const links = [
   { href: "#home", label: "Home" },
@@ -38,27 +39,31 @@ const Navbar = () => {
           <span className="text-muted-foreground font-mono text-xs ml-1">/dev</span>
         </a>
 
-        <ul className="hidden md:flex items-center gap-6">
-          {links.map((l) => (
-            <li key={l.href}>
-              <a
-                href={l.href}
-                className="text-sm text-muted-foreground hover:text-foreground transition-colors relative group font-mono"
-              >
-                {l.label}
-                <span className="absolute -bottom-1 left-0 h-px w-0 bg-gradient-to-r from-primary to-secondary group-hover:w-full transition-all duration-300" />
-              </a>
-            </li>
-          ))}
-        </ul>
+        <div className="flex items-center gap-4 md:gap-6">
+          <ul className="hidden md:flex items-center gap-6">
+            {links.map((l) => (
+              <li key={l.href}>
+                <a
+                  href={l.href}
+                  className="text-sm text-muted-foreground hover:text-foreground transition-colors relative group font-mono"
+                >
+                  {l.label}
+                  <span className="absolute -bottom-1 left-0 h-px w-0 bg-gradient-to-r from-primary to-secondary group-hover:w-full transition-all duration-300" />
+                </a>
+              </li>
+            ))}
+          </ul>
 
-        <button
-          onClick={() => setOpen((v) => !v)}
-          className="md:hidden p-2 text-foreground"
-          aria-label="Toggle menu"
-        >
-          {open ? <X size={20} /> : <Menu size={20} />}
-        </button>
+          <ThemeToggle />
+
+          <button
+            onClick={() => setOpen((v) => !v)}
+            className="md:hidden p-2 text-foreground"
+            aria-label="Toggle menu"
+          >
+            {open ? <X size={20} /> : <Menu size={20} />}
+          </button>
+        </div>
       </nav>
 
       {open && (

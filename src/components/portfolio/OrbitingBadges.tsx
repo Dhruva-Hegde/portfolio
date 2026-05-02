@@ -5,14 +5,21 @@ import { useEffect, useRef, useState } from "react";
  * that overlays the 3D scene and shows actual stack labels recruiters can read.
  */
 const TECH = [
-  { label: "React", angle: 0, color: "var(--secondary)" },
-  { label: "TypeScript", angle: 45, color: "var(--primary)" },
-  { label: "Next.js", angle: 90, color: "var(--accent)" },
-  { label: "Python", angle: 135, color: "var(--secondary)" },
-  { label: "Firebase", angle: 180, color: "var(--accent)" },
-  { label: "Three.js", angle: 225, color: "var(--primary)" },
-  { label: "Socket.IO", angle: 270, color: "var(--secondary)" },
-  { label: "Vite", angle: 315, color: "var(--primary)" },
+  // Inner ring
+  { label: "React", angle: 0, color: "var(--secondary)", ring: 1 },
+  { label: "TypeScript", angle: 60, color: "var(--primary)", ring: 1 },
+  { label: "Next.js", angle: 120, color: "var(--accent)", ring: 1 },
+  { label: "Python", angle: 180, color: "var(--secondary)", ring: 1 },
+  { label: "Node.js", angle: 240, color: "var(--primary)", ring: 1 },
+  { label: "Tailwind", angle: 300, color: "var(--accent)", ring: 1 },
+  
+  // Outer ring
+  { label: "Firebase", angle: 30, color: "var(--accent)", ring: 2 },
+  { label: "Three.js", angle: 90, color: "var(--primary)", ring: 2 },
+  { label: "Socket.IO", angle: 150, color: "var(--secondary)", ring: 2 },
+  { label: "Vite", angle: 210, color: "var(--primary)", ring: 2 },
+  { label: "Docker", angle: 270, color: "var(--accent)", ring: 2 },
+  { label: "MongoDB", angle: 330, color: "var(--secondary)", ring: 2 },
 ];
 
 const OrbitingBadges = () => {
@@ -23,7 +30,7 @@ const OrbitingBadges = () => {
     let frame = 0;
     let raf = 0;
     const tick = () => {
-      frame += 0.15;
+      frame += 0.25; // Increased speed from 0.15 to 0.25
       setRotation(frame);
       raf = requestAnimationFrame(tick);
     };
@@ -44,8 +51,8 @@ const OrbitingBadges = () => {
         }}
       >
         {TECH.map((tech, i) => {
-          const angle = (tech.angle + i * 0) * (Math.PI / 180);
-          const radius = 220;
+          const angle = (tech.angle) * (Math.PI / 180);
+          const radius = tech.ring === 1 ? 220 : 340; // Two distinct orbits
           const x = Math.cos(angle) * radius;
           const y = Math.sin(angle) * radius * 0.55; // elliptical
           return (

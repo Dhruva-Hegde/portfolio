@@ -9,6 +9,60 @@
 
 @layer base {
   :root {
+    /* LIGHT MODE */
+    --background: 0 0% 100%;
+    --foreground: 240 10% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 3.9%;
+    --primary: 270 80% 55%;
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 270 80% 55%;
+    --secondary: 200 80% 45%;
+    --secondary-foreground: 0 0% 100%;
+    --secondary-glow: 200 80% 45%;
+    --accent: 320 80% 55%;
+    --accent-foreground: 0 0% 100%;
+    --muted: 240 4.8% 95.9%;
+    --muted-foreground: 240 3.8% 46.1%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 240 5.9% 90%;
+    --input: 240 5.9% 90%;
+    --ring: 270 80% 55%;
+    --radius: 0.75rem;
+
+    --gradient-primary: linear-gradient(135deg, hsl(270 80% 55%) 0%, hsl(200 80% 45%) 100%);
+    --gradient-accent: linear-gradient(135deg, hsl(320 80% 55%) 0%, hsl(270 80% 55%) 50%, hsl(200 80% 45%) 100%);
+    --gradient-radial: radial-gradient(circle at 50% 50%, hsl(270 80% 55% / 0.15) 0%, transparent 70%);
+    --gradient-mesh: radial-gradient(at 20% 30%, hsl(270 80% 55% / 0.2) 0px, transparent 50%),
+                     radial-gradient(at 80% 20%, hsl(200 80% 45% / 0.15) 0px, transparent 50%),
+                     radial-gradient(at 60% 80%, hsl(320 80% 55% / 0.15) 0px, transparent 50%);
+
+    --glow-primary: 0 0 20px hsl(270 80% 55% / 0.2), 0 0 40px hsl(270 80% 55% / 0.1);
+    --glow-secondary: 0 0 20px hsl(200 80% 45% / 0.2), 0 0 40px hsl(200 80% 45% / 0.1);
+    --glow-accent: 0 0 20px hsl(320 80% 55% / 0.2), 0 0 40px hsl(320 80% 55% / 0.1);
+    --glow-soft: 0 0 12px hsl(270 80% 55% / 0.1);
+    --shadow-card: 0 8px 32px hsl(240 10% 90% / 0.6), 0 0 0 1px hsl(240 5% 85% / 0.8);
+    --shadow-card-hover: 0 16px 48px hsl(270 40% 90% / 0.8), 0 0 0 1px hsl(270 50% 80% / 0.8);
+
+    --grid-line: hsl(240 5.9% 90% / 0.8);
+
+    --transition-smooth: 350ms cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-glow: 500ms cubic-bezier(0.4, 0, 0.2, 1);
+
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 240 10% 3.9%;
+    --sidebar-primary: 270 80% 55%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 10% 3.9%;
+    --sidebar-border: 240 5.9% 90%;
+    --sidebar-ring: 270 80% 55%;
+  }
+
+  .dark {
     /* Core surfaces — deep space navy */
     --background: 240 30% 4%;
     --foreground: 220 20% 96%;
@@ -147,6 +201,7 @@
     mask-composite: exclude;
     opacity: 0.5;
     transition: var(--transition-glow);
+    pointer-events: none;
   }
   .neon-border:hover::before { opacity: 1; }
   .neon-border:hover { box-shadow: var(--shadow-card-hover); transform: translateY(-4px); }

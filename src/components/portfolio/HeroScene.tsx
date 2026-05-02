@@ -13,8 +13,8 @@ const BlackHole = () => {
   const coreRef = useRef<Mesh>(null);
 
   useFrame((state, delta) => {
-    if (diskRef.current) diskRef.current.rotation.z += delta * 0.6;
-    if (ringRef.current) ringRef.current.rotation.z -= delta * 0.4;
+    if (diskRef.current) diskRef.current.rotation.z += delta * 1.2;
+    if (ringRef.current) ringRef.current.rotation.z -= delta * 0.8;
     if (coreRef.current) {
       const pulse = 1 + Math.sin(state.clock.elapsedTime * 1.5) * 0.08;
       coreRef.current.scale.setScalar(pulse);
@@ -145,7 +145,7 @@ const FloatingWireframe = ({
 const HeroScene = () => {
   return (
     <Canvas
-      camera={{ position: [0, 0.3, 5], fov: 55 }}
+      camera={{ position: [0, 2.2, 5], fov: 55 }}
       dpr={[1, 1.5]}
       gl={{ antialias: true, alpha: true, toneMapping: THREE.ACESFilmicToneMapping }}
     >
@@ -163,24 +163,29 @@ const HeroScene = () => {
         <BlackHole />
 
         {/* Orbiting tech particles — different orbits, speeds, colors */}
-        <OrbitingParticle radius={2.0} speed={0.8} offset={0} color="#22d3ee" size={0.14} tilt={0.3} />
-        <OrbitingParticle radius={2.0} speed={0.8} offset={Math.PI * 0.66} color="#a855f7" size={0.13} tilt={0.3} />
-        <OrbitingParticle radius={2.0} speed={0.8} offset={Math.PI * 1.33} color="#ec4899" size={0.14} tilt={0.3} />
+        <OrbitingParticle radius={2.0} speed={1.2} offset={0} color="#22d3ee" size={0.14} tilt={0.3} />
+        <OrbitingParticle radius={2.0} speed={1.2} offset={Math.PI * 0.66} color="#a855f7" size={0.13} tilt={0.3} />
+        <OrbitingParticle radius={2.0} speed={1.2} offset={Math.PI * 1.33} color="#ec4899" size={0.14} tilt={0.3} />
 
-        <OrbitingParticle radius={2.6} speed={-0.5} offset={0} color="#a855f7" size={0.1} tilt={0.6} />
-        <OrbitingParticle radius={2.6} speed={-0.5} offset={Math.PI * 0.5} color="#22d3ee" size={0.11} tilt={0.6} />
-        <OrbitingParticle radius={2.6} speed={-0.5} offset={Math.PI} color="#ec4899" size={0.1} tilt={0.6} />
-        <OrbitingParticle radius={2.6} speed={-0.5} offset={Math.PI * 1.5} color="#c084fc" size={0.12} tilt={0.6} />
+        <OrbitingParticle radius={2.3} speed={-0.9} offset={0} color="#c084fc" size={0.09} tilt={-0.2} />
+        <OrbitingParticle radius={2.3} speed={-0.9} offset={Math.PI} color="#22d3ee" size={0.11} tilt={-0.2} />
 
-        <OrbitingParticle radius={3.2} speed={0.35} offset={0} color="#22d3ee" size={0.08} tilt={0.9} />
-        <OrbitingParticle radius={3.2} speed={0.35} offset={Math.PI * 0.4} color="#a855f7" size={0.09} tilt={0.9} />
-        <OrbitingParticle radius={3.2} speed={0.35} offset={Math.PI * 0.8} color="#ec4899" size={0.08} tilt={0.9} />
-        <OrbitingParticle radius={3.2} speed={0.35} offset={Math.PI * 1.2} color="#c084fc" size={0.1} tilt={0.9} />
-        <OrbitingParticle radius={3.2} speed={0.35} offset={Math.PI * 1.6} color="#22d3ee" size={0.08} tilt={0.9} />
+        <OrbitingParticle radius={2.6} speed={-0.8} offset={0} color="#a855f7" size={0.1} tilt={0.6} />
+        <OrbitingParticle radius={2.6} speed={-0.8} offset={Math.PI * 0.5} color="#22d3ee" size={0.11} tilt={0.6} />
+        <OrbitingParticle radius={2.6} speed={-0.8} offset={Math.PI} color="#ec4899" size={0.1} tilt={0.6} />
+        <OrbitingParticle radius={2.6} speed={-0.8} offset={Math.PI * 1.5} color="#c084fc" size={0.12} tilt={0.6} />
+
+        <OrbitingParticle radius={3.2} speed={0.5} offset={0} color="#22d3ee" size={0.08} tilt={0.9} />
+        <OrbitingParticle radius={3.2} speed={0.5} offset={Math.PI * 0.4} color="#a855f7" size={0.09} tilt={0.9} />
+        <OrbitingParticle radius={3.2} speed={0.5} offset={Math.PI * 0.8} color="#ec4899" size={0.08} tilt={0.9} />
+        <OrbitingParticle radius={3.2} speed={0.5} offset={Math.PI * 1.2} color="#c084fc" size={0.1} tilt={0.9} />
+        <OrbitingParticle radius={3.2} speed={0.5} offset={Math.PI * 1.6} color="#22d3ee" size={0.08} tilt={0.9} />
 
         {/* Decorative wireframes */}
-        <FloatingWireframe position={[-3, 1.8, -2]} color="#22d3ee" scale={0.7} />
-        <FloatingWireframe position={[3, -1.8, -2]} color="#ec4899" scale={0.6} />
+        <FloatingWireframe position={[-4, 2.5, -3]} color="#22d3ee" scale={0.8} />
+        <FloatingWireframe position={[4, -2.5, -3]} color="#ec4899" scale={0.7} />
+        <FloatingWireframe position={[-2, -3, -4]} color="#a855f7" scale={0.5} />
+        <FloatingWireframe position={[3, 3, -5]} color="#c084fc" scale={0.9} />
       </Suspense>
     </Canvas>
   );
