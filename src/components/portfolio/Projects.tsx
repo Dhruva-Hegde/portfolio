@@ -51,6 +51,18 @@ const projects = [
     githubUrl: "https://github.com/Dhruva-Hegde/SuperBike-Shocase",
     image: "/superbike.png",
   },
+  {
+    title: "MetaLens",
+    tagline: "SEO Meta-Tag Previewer",
+    description:
+      "Interactive SEO meta-tag previewer & generator. Provides real-time visual mockups for Google, Facebook, Twitter, and LinkedIn. Features client-side image loading and SEO code generation.",
+    stack: ["HTML5", "CSS3", "JavaScript"],
+    accent: "from-purple-500 to-pink-500",
+    badge: "05",
+    liveUrl: "https://meta-lens-jl1q.vercel.app/",
+    githubUrl: "https://github.com/Dhruva-Hegde/MetaLens",
+    image: "/metalens.png",
+  },
 ];
 
 const TiltCard = ({ children }: { children: React.ReactNode }) => {

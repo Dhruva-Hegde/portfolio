@@ -28,7 +28,7 @@ const Experience = () => {
                 </p>
               </div>
               <span className="font-mono text-xs px-3 py-1 rounded-md border border-border text-muted-foreground bg-muted/40">
-                Mar 2026 — Present
+                Mar 2026 — Jun 2026
               </span>
             </div>
 
