@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { ArrowDown, Download, Github, Linkedin, Mail, Sparkles } from "lucide-react";
 import TypewriterRole from "./TypewriterRole";
+import resumeFile from "../../assets/Dhruva-Resume.pdf";
 
 const Hero = () => {
   return (
@@ -59,7 +60,7 @@ const Hero = () => {
               variant="outline"
               className="border-primary/40 hover:border-primary hover:bg-primary/10 group"
             >
-              <a href="/Dhruva-Resume.pdf" download>
+              <a href={resumeFile} download="Dhruva-Resume.pdf">
                 <Download className="mr-2 h-4 w-4 group-hover:animate-bounce" /> Download Resume
               </a>
             </Button>
