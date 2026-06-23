@@ -59,7 +59,7 @@ const Hero = () => {
               variant="outline"
               className="border-primary/40 hover:border-primary hover:bg-primary/10 group"
             >
-              <a href="/Dhruva-Hegde-Resume.pdf" download>
+              <a href="/Dhruva-Resume.pdf" download>
                 <Download className="mr-2 h-4 w-4 group-hover:animate-bounce" /> Download Resume
               </a>
             </Button>
